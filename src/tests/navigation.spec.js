@@ -8,4 +8,24 @@ test.describe("Navigation bar", () => {
   test("go to Katalog", async ({page}) => {
     await expect( page.getByText('sidan för dig som gillar att')).toBeVisible()
   })
+
+  test("go to Lägg till bok", async ({page}) => {
+    await page
+         .getByTestId("add-book")
+         .click()
+    await expect(page
+         .getByTestId("add-book"))
+         .toBeDisabled()
+  })
+
+  test("go to Mina böcker", async({page}) => {
+    await page
+          .getByTestId("favorites")
+          .click()
+    await expect(page
+          .getByTestId("favorites"))
+          .toBeDisabled()
+  })
+
+
 })
