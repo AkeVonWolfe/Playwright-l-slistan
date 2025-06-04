@@ -1,4 +1,4 @@
-import {test, expect} from '@playwright/test';
+import {test, expect} from '@playwright/test'
 
 test.describe("Navigation bar", () => {
   test.beforeEach(async ({page}) => {
@@ -6,7 +6,7 @@ test.describe("Navigation bar", () => {
   })
 
   test("go to Katalog", async ({page}) => {
-    await expect( page.getByText('sidan för dig som gillar att')).toBeVisible()
+    await expect( page.getByText("sidan för dig som gillar att")).toBeVisible()
   })
 
   test("go to Lägg till bok", async ({page}) => {

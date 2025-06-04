@@ -69,7 +69,7 @@ test.describe("Add book", () => {
               .toBeDisabled()
         await expect(page
               .getByTestId("add-submit"))   
-              .toBeDisabled()                // Check if submit is disabled
+              .toBeDisabled()                // kollar submit är disable
         await page
               .getByTestId("add-input-author")
               .click()
@@ -78,7 +78,7 @@ test.describe("Add book", () => {
               .fill(book.author)
         await expect(page
               .getByTestId("add-submit"))
-              .toBeDisabled()               // Check if submit is still disabled with author only
+              .toBeDisabled()               // kollar submit är disable med author
         await page
               .getByTestId("add-input-title")
               .click()
@@ -90,9 +90,9 @@ test.describe("Add book", () => {
               .click()
         await page
               .getByTestId("add-input-author")
-              .fill("")                       // Clear author field
+              .fill("")                       // rensar author
         await expect(page
               .getByTestId("add-submit"))
-              .toBeDisabled()               // Check if submit is still disabled with title only
+              .toBeDisabled()               // kollar submit är disable med title
     })
 })

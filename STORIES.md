@@ -11,7 +11,7 @@ Som användare vill jag kunna klicka på "Mina böcker" för att se mina favorit
 
 Som användare vill jag kunna markera böcker som favoriter (hjärta dem) för att spara de jag gillar.
 
-Som användare vill jag kunna ta bort favoriter för att rensa bort de böcker jag inte längre gillar.
+Som användare vill jag kunna ta bort en favorit för att ta bort den boken jag inte längre gillar.
 
 ## Lägg till bok UserStories
 
@@ -25,4 +25,4 @@ Som användare vill jag kunna se validering av formuläret så att jag inte skic
 
 Som användare vill jag kunna se en lista med mina favoritböcker så att jag enkelt hittar dem.
 
-Som användare vill jag kunna ta bort en bok från favoriter för att rensa bort böcker jag inte längre gillar.
+Som användare vill jag kunna ta bort flera bäcker från favoriter för att rensa bort böcker jag inte längre gillar.
