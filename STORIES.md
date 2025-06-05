@@ -13,6 +13,8 @@ Som användare vill jag kunna markera böcker som favoriter (hjärta dem) för a
 
 Som användare vill jag kunna ta bort en favorit för att ta bort den boken jag inte längre gillar.
 
+info om bok user story 
+
 ## Lägg till bok UserStories
 
 Som användare vill jag kunna lägga till en bok genom att fylla i ett formulär med titel och författare.

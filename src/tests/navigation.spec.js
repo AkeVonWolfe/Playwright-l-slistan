@@ -7,6 +7,7 @@ test.describe("Navigation bar", () => {
 
   test("go to Katalog", async ({page}) => {
     await expect( page.getByText("sidan för dig som gillar att")).toBeVisible()
+    //lämna först sedan gå tillbacka
   })
 
   test("go to Lägg till bok", async ({page}) => {
@@ -16,6 +17,8 @@ test.describe("Navigation bar", () => {
     await expect(page
          .getByTestId("add-book"))
          .toBeDisabled()
+         // getbytext och text från vyn
+         //närmare userstories
   })
 
   test("go to Mina böcker", async({page}) => {

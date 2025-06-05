@@ -12,6 +12,8 @@ test.describe("Catalog", () => {
         await expect(page
               .getByTestId("star-Hur man tappar bort sin TV-fjärr 10 gånger om dagen"))
               .toBeVisible()
+
+              //flytta över mybook
         
     })
 

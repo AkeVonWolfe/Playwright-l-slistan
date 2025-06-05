@@ -19,12 +19,14 @@ test.describe("My books", () => {
     await page
          .getByTestId("star-Gräv där du står – och hitta en pizzameny")  // lägger till massa böcker
          .click()
+
     await page
           .getByTestId("favorites")   // gå till min boklista
           .click()
     await expect(page
           .getByTestId("favorites"))
-          .toBeDisabled()            // kanske inte behövs
+          .toBeDisabled()    
+                  // kanske inte behövs
     await expect(page
           .getByTestId("fav-Hur man tappar bort sin TV-fjärr 10 gånger om dagen"))
           .toBeVisible()
@@ -52,6 +54,7 @@ test.describe("My books", () => {
     await page
          .getByTestId("star-Gräv där du står – och hitta en pizzameny")  // lägger till massa böcker
          .click()
+         
     await page
          .getByTestId("star-Hur man tappar bort sin TV-fjärr 10 gånger om dagen")
          .click()
