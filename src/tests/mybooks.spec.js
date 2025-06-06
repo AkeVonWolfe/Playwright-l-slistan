@@ -1,84 +1,62 @@
 import {test, expect} from '@playwright/test'
 
-test.describe("My books", () => {
+const books = [
+    "Hur man tappar bort sin TV-fjärr 10 gånger om dagen",
+    "Min katt är min chef",
+    "100 sätt att undvika måndagar",
+    "Gräv där du står – och hitta en pizzameny"
+  ]
+
+test.describe("Mina Böcker", () => {
   test.beforeEach(async ({page}) => {
     await page.goto("https://tap-ht24-testverktyg.github.io/exam-template/")
   })
 
 
-  test("add favorite book and go to favorite Mina böcker", async ({page}) => {
-    await page
-         .getByTestId("star-Hur man tappar bort sin TV-fjärr 10 gånger om dagen")
-         .click()
-    await page
-         .getByTestId("star-Min katt är min chef")
-         .click()
-    await page
-         .getByTestId("star-100 sätt att undvika måndagar")
-         .click()
-    await page
-         .getByTestId("star-Gräv där du står – och hitta en pizzameny")  // lägger till massa böcker
-         .click()
-
-    await page
-          .getByTestId("favorites")   // gå till min boklista
+  test("Lägg till favorit bok och gå till Mina böcker", async ({page}) => {
+      // lägger till böcker i favoriter
+     for (const book of books) {
+     await page
+          .getByTestId(`star-${book}`)
           .click()
-    await expect(page
-          .getByTestId("favorites"))
-          .toBeDisabled()    
-                  // kanske inte behövs
-    await expect(page
-          .getByTestId("fav-Hur man tappar bort sin TV-fjärr 10 gånger om dagen"))
+  }
+
+     // går till mina böcker
+     await page
+          .getByTestId("favorites")
+          .click()
+     await expect(page
+          .getByText('Dina favoriter:'))
           .toBeVisible()
-    await expect(page
-          .getByTestId("fav-Min katt är min chef"))
+
+     // kollar att alla böcker är synliga i Mina böcker
+     for (const book of books) {
+     await expect(page
+          .getByTestId(`fav-${book}`))
           .toBeVisible()
-    await expect(page
-          .getByTestId("fav-100 sätt att undvika måndagar"))
-          .toBeVisible()
-    await expect(page
-          .getByTestId("fav-Gräv där du står – och hitta en pizzameny"))
-          .toBeVisible()             // kollar att alla böcker finns i min boklista
+  }
   })
     
-  test("remove book from favorites", async ({page}) => {
-    await page
-         .getByTestId("star-Hur man tappar bort sin TV-fjärr 10 gånger om dagen")
-         .click()
-    await page
-         .getByTestId("star-Min katt är min chef")
-         .click()
-    await page
-         .getByTestId("star-100 sätt att undvika måndagar")
-         .click()
-    await page
-         .getByTestId("star-Gräv där du står – och hitta en pizzameny")  // lägger till massa böcker
-         .click()
-         
-    await page
-         .getByTestId("star-Hur man tappar bort sin TV-fjärr 10 gånger om dagen")
-         .click()
-    await page
-         .getByTestId("star-Min katt är min chef")
-         .click()
-    await page
-         .getByTestId("star-100 sätt att undvika måndagar")
-         .click()
-    await page
-         .getByTestId("star-Gräv där du står – och hitta en pizzameny")  // lägger till massa böcker
-         .click()
-    await expect(page
-              .getByTestId("star-Hur man tappar bort sin TV-fjärr 10 gånger om dagen"))
-              .not.toHaveClass(/star.selected/)
-    await expect(page
-              .getByTestId("star-Min katt är min chef"))
-              .not.toHaveClass(/star.selected/)
-    await expect(page
-              .getByTestId("star-100 sätt att undvika måndagar"))
-              .not.toHaveClass(/star.selected/)
-    await expect(page
-              .getByTestId("star-Gräv där du står – och hitta en pizzameny"))
-              .not.toHaveClass(/star.selected/)            // kollar att alla böcker är borttagna från min boklista
+  test("ta bort böcker från favoriter", async ({page}) => {
+     // lägg till böcker i favoriter
+     for (const book of books) {
+     await page
+     .getByTestId(`star-${book}`)
+     .click()
+  }
+
+     // tar bort böcker från favoriter
+     for (const book of books) {
+     await page
+     .getByTestId(`star-${book}`)
+     .click()
+  }
+
+     // kollar att böckerna inte är markerade som favoriter
+     for (const book of books) {
+     await expect(page.getByTestId(`star-${book}`))
+     .not.toHaveClass(/star.selected/)
+  }
     
 })
 

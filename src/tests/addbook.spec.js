@@ -2,12 +2,12 @@ import {test, expect} from '@playwright/test'
 
 const book = {title: "Red Sister", author: "Mark Lawrence"}
 
-test.describe("Add book", () => {
+test.describe("Lägg till bok", () => {
     test.beforeEach(async ({page}) => {
          await page.goto("https://tap-ht24-testverktyg.github.io/exam-template/")
     })
 
-    test("add book to favorites", async ({page}) => {
+    test("Lägg till bok till favoriter", async ({page}) => {
         await page
               .getByTestId("star-Hur man tappar bort sin TV-fjärr 10 gånger om dagen")
               .click()
@@ -18,7 +18,7 @@ test.describe("Add book", () => {
               //flytta över mybook     
     })
 
-    test("add book to catalog", async ({page}) => {
+    test("Lägg till bok i katalog", async ({page}) => {
         await page
               .getByTestId("add-book")
               .click()
@@ -50,7 +50,7 @@ test.describe("Add book", () => {
               .toBeVisible()
     })
     // lite luft mellan rader 
-    test("Check if book is not added with empty title or author", async ({page}) => {
+    test("Kolla att inte lägga till bok utan titel eller författare", async ({page}) => {
         await page
               .getByTestId("add-book")
               .click()
