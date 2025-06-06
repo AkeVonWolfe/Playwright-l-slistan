@@ -6,8 +6,9 @@ test.describe("Navigation bar", () => {
   })
 
   test("go to Katalog", async ({page}) => {
-    await expect( page.getByText("sidan för dig som gillar att")).toBeVisible()
-    //lämna först sedan gå tillbacka
+    await page.getByTestId('add-book').click()
+    await page.getByTestId('catalog').click()
+    await page.getByText('❤️"Hur man tappar bort sin TV').click()
   })
 
   test("go to Lägg till bok", async ({page}) => {
@@ -15,10 +16,9 @@ test.describe("Navigation bar", () => {
          .getByTestId("add-book")
          .click()
     await expect(page
-         .getByTestId("add-book"))
-         .toBeDisabled()
-         // getbytext och text från vyn
-         //närmare userstories
+         .getByText('Titel'))
+         .toBeVisible()
+
   })
 
   test("go to Mina böcker", async({page}) => {
@@ -26,8 +26,9 @@ test.describe("Navigation bar", () => {
           .getByTestId("favorites")
           .click()
     await expect(page
-          .getByTestId("favorites"))
-          .toBeDisabled()
+          .getByText('När du valt, kommer dina'))
+          .toBeVisible()
+
   })
 
 

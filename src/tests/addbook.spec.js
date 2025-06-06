@@ -7,31 +7,6 @@ test.describe("Add book", () => {
          await page.goto("https://tap-ht24-testverktyg.github.io/exam-template/")
     })
 
-//     test("add book to catalog", async ({page}) => {
-//         await page
-//               .getByTestId("add-book")
-//               .click()
-//         await expect(page
-//               .getByTestId("add-book"))
-//               .toBeDisabled()
-//         await page
-//               .getByTestId("add-input-title")
-//               .click()
-//         await page
-//               .getByTestId("add-input-title")
-//               .fill(book.title)
-//         await page
-//               .getByTestId("add-input-author")
-//               .click()
-//         await page
-//               .getByTestId("add-input-author")
-//               .fill(book.author)
-//         await page
-//               .getByTestId("add-submit")
-//               .click()
-
-//               //gö över kolla boken finns
-//     })
     test("add book to catalog", async ({page}) => {
         await page
               .getByTestId("add-book")
@@ -39,6 +14,7 @@ test.describe("Add book", () => {
         await expect(page
               .getByTestId("add-book"))
               .toBeDisabled()
+
         await page
               .getByTestId("add-input-title")
               .click()
@@ -51,6 +27,7 @@ test.describe("Add book", () => {
         await page
               .getByTestId("add-input-author")
               .fill(book.author)
+
         await page
               .getByTestId("add-submit")
               .click()
@@ -69,9 +46,11 @@ test.describe("Add book", () => {
         await expect(page
               .getByTestId("add-book"))
               .toBeDisabled()
+
         await expect(page
               .getByTestId("add-submit"))   
               .toBeDisabled()                // kollar submit är disable
+
         await page
               .getByTestId("add-input-author")
               .click()
@@ -81,18 +60,21 @@ test.describe("Add book", () => {
         await expect(page
               .getByTestId("add-submit"))
               .toBeDisabled()               // kollar submit är disable med author
+
         await page
               .getByTestId("add-input-title")
               .click()
         await page
               .getByTestId("add-input-title")
               .fill(book.title)
+
         await page
               .getByTestId("add-input-author")
               .click()
         await page
               .getByTestId("add-input-author")
               .fill("")                       // rensar author
+              
         await expect(page
               .getByTestId("add-submit"))
               .toBeDisabled()               // kollar submit är disable med title
