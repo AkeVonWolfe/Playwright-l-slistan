@@ -5,25 +5,13 @@ test.describe("Catalog", () => {
         await page.goto("https://tap-ht24-testverktyg.github.io/exam-template/")
     })
 
-    test("add book to favorites", async ({page}) => {
-        await page
-              .getByTestId("star-Hur man tappar bort sin TV-fjärr 10 gånger om dagen")
-              .click()
-        await expect(page
-              .getByTestId("star-Hur man tappar bort sin TV-fjärr 10 gånger om dagen"))
-              .toBeVisible()
-
-              //flytta över mybook
-        
-    })
-
     test ("remove book from favorites", async ({page}) => {
         await page
               .getByTestId("star-Hur man tappar bort sin TV-fjärr 10 gånger om dagen")
               .click()
         await expect(page
               .getByTestId("star-Hur man tappar bort sin TV-fjärr 10 gånger om dagen"))
-              .toBeVisible()
+              .toHaveClass(/star.selected/)
         await page
               .getByTestId("star-Hur man tappar bort sin TV-fjärr 10 gånger om dagen")
               .click()
